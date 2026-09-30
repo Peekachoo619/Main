@@ -1,0 +1,301 @@
+<title>Lincoln Face Swap Plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Libre+Caslon+Text:ital@0;1&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: one calm reading column (max 920px). Image-led: the client's own two frames carry the plan; text stays short. */
+:root {
+  --bg: #F5F1EA;
+  --surface: #FFFDF9;
+  --ink: #1C1712;
+  --muted: #6B6156;
+  --line: #E2D9CC;
+  --accent: #9A5B1E;        /* tungsten brass */
+  --accent-soft: #F3E6D4;
+  --good: #3F7D5C;
+  --frame: #15110D;
+  --f-display: "Libre Caslon Display", "Caslon", Georgia, serif;
+  --f-serif: "Libre Caslon Text", Georgia, serif;
+  --f-body: "Hanken Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #12100D; --surface: #1C1915; --ink: #F1EAE0; --muted: #A89C8E; --line: #332D26;
+    --accent: #E0A15E; --accent-soft: #2E2319; --good: #6CC196; --frame: #070605;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #12100D; --surface: #1C1915; --ink: #F1EAE0; --muted: #A89C8E; --line: #332D26;
+  --accent: #E0A15E; --accent-soft: #2E2319; --good: #6CC196; --frame: #070605;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--f-body); font-size: 1rem; line-height: 1.6;
+  padding-inline: 20px; padding-block: 0 64px; margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 920px; margin-inline: auto; }
+h1, h2, h3 { text-wrap: balance; margin: 0; font-weight: 400; }
+h2 { font-family: var(--f-display); font-size: 2rem; line-height: 1.15; }
+h3 { font-family: var(--f-body); font-size: 1rem; font-weight: 700; line-height: 1.3; }
+p { margin: 0; max-width: 62ch; }
+img { display: block; max-width: 100%; }
+.eyebrow { font-family: var(--f-mono); font-size: 0.76rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
+.muted { color: var(--muted); }
+.mono { font-family: var(--f-mono); font-variant-numeric: tabular-nums; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+section { padding-block: 60px 0; display: grid; gap: 22px; }
+.head { display: grid; gap: 8px; }
+
+/* ---------- Hero ---------- */
+.hero { padding-block: 48px 0; display: grid; gap: 26px; }
+.meta { display: flex; flex-wrap: wrap; gap: 6px 20px; font-family: var(--f-mono); font-size: 0.76rem; color: var(--muted); }
+.hero h1 { font-family: var(--f-display); font-size: clamp(2.4rem, 6.4vw, 4rem); line-height: 1.02; letter-spacing: -0.01em; }
+.hero h1 em { font-family: var(--f-serif); font-style: italic; color: var(--accent); }
+.hero .lede { font-size: 1.1rem; color: var(--muted); }
+.rule { height: 1px; background: linear-gradient(90deg, var(--accent), transparent); }
+
+/* ---------- Before / target ---------- */
+.pair { display: grid; grid-template-columns: 1fr auto 1fr; gap: 14px; align-items: center; }
+.shot { position: relative; margin: 0; border-radius: 12px; overflow: hidden; background: var(--frame); aspect-ratio: 16 / 9; }
+.shot img { width: 100%; height: 100%; object-fit: cover; }
+.tag { position: absolute; top: 10px; left: 10px; font-family: var(--f-mono); font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 9px; border-radius: 999px; color: #fff; background: rgba(20,16,12,0.66); }
+.tag.t { background: var(--accent); }
+.arrow { font-family: var(--f-mono); color: var(--accent); font-size: 1.4rem; }
+.pair-cap { display: grid; grid-template-columns: 1fr auto 1fr; gap: 14px; font-size: 0.86rem; color: var(--muted); }
+.pair-cap span:nth-child(2) { visibility: hidden; font-size: 1.4rem; }
+@media (max-width: 640px) {
+  .pair, .pair-cap { grid-template-columns: 1fr; }
+  .arrow { text-align: center; transform: rotate(90deg); }
+  .pair-cap { display: none; }
+}
+
+/* ---------- Keep / change ---------- */
+.kc { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+.kc > div { background: var(--surface); padding: 22px; display: grid; gap: 12px; align-content: start; }
+.kc .k { font-family: var(--f-mono); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; }
+.kc .keep .k { color: var(--good); }
+.kc .change .k { color: var(--accent); }
+.kc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 7px; font-size: 0.95rem; }
+.kc li { display: grid; grid-template-columns: 18px 1fr; gap: 6px; }
+.kc .keep li::before { content: "✓"; color: var(--good); font-weight: 700; }
+.kc .change li::before { content: "→"; color: var(--accent); font-weight: 700; }
+@media (max-width: 640px) { .kc { grid-template-columns: 1fr; } }
+.ask { background: var(--accent-soft); border-radius: 12px; padding: 18px 20px; display: grid; gap: 4px; }
+.ask b { font-family: var(--f-serif); font-style: italic; font-size: 1.15rem; font-weight: 400; }
+
+/* ---------- Process ---------- */
+.steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; counter-reset: s; }
+.step { display: grid; gap: 10px; align-content: start; min-width: 0; }
+.step .pic { position: relative; aspect-ratio: 1; border-radius: 12px; overflow: hidden; background: var(--frame); }
+.step .pic img { width: 100%; height: 100%; object-fit: cover; }
+.step .n { position: absolute; top: 10px; left: 10px; font-family: var(--f-mono); font-size: 0.68rem; background: rgba(20,16,12,0.66); color: #fff; padding: 3px 8px; border-radius: 999px; }
+.step h3 { font-family: var(--f-display); font-weight: 400; font-size: 1.25rem; }
+.step p { font-size: 0.86rem; color: var(--muted); }
+.half { position: absolute; inset: 0; display: grid; grid-template-columns: 1fr 1fr; }
+.half img { height: 100%; }
+.seam { position: absolute; top: 0; bottom: 0; left: 50%; width: 2px; background: #F6D9A8; box-shadow: 0 0 12px rgba(246,217,168,0.8); }
+.mesh { position: absolute; inset: 0; width: 100%; height: 100%; }
+.grade { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(0,0,0,0) 50%, rgba(255,170,80,0.18) 50%); }
+.grade::after { content: ""; position: absolute; inset: 0; opacity: 0.22; background-image: radial-gradient(rgba(255,255,255,0.5) 0.6px, transparent 0.7px); background-size: 3px 3px; }
+@media (max-width: 820px) { .steps { grid-template-columns: repeat(2, 1fr); gap: 22px 14px; } }
+
+/* ---------- Pricing ---------- */
+.price-card { background: var(--surface); border: 2px solid var(--accent); border-radius: 16px; padding: 28px 26px; display: grid; grid-template-columns: auto 1fr; gap: 28px; align-items: center; }
+.big { display: grid; gap: 4px; }
+.big b { font-family: var(--f-display); font-weight: 400; font-size: 4.2rem; line-height: 0.95; font-variant-numeric: tabular-nums; }
+.big span { font-family: var(--f-mono); font-size: 0.76rem; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; }
+.price-card ul { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 8px 18px; font-size: 0.92rem; }
+.price-card li { display: grid; grid-template-columns: 16px 1fr; gap: 6px; }
+.price-card li::before { content: "+"; color: var(--accent); font-weight: 700; }
+@media (max-width: 640px) { .price-card { grid-template-columns: 1fr; gap: 18px; } .price-card ul { grid-template-columns: 1fr; } }
+.calc { display: grid; grid-template-columns: repeat(5, 1fr); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+.calc div { padding: 14px 12px; display: grid; gap: 2px; text-align: center; background: var(--surface); border-right: 1px solid var(--line); }
+.calc div:last-child { border-right: 0; }
+.calc span { font-size: 0.78rem; color: var(--muted); }
+.calc b { font-family: var(--f-mono); font-size: 1.15rem; font-weight: 600; }
+@media (max-width: 520px) { .calc { grid-template-columns: repeat(3, 1fr); } .calc div:nth-child(n+4) { border-top: 1px solid var(--line); } .calc div:nth-child(3) { border-right: 0; } }
+
+/* ---------- Timeline ---------- */
+.flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.flow div { border-top: 2px solid var(--ink); padding-top: 10px; display: grid; gap: 2px; }
+.flow div.hi { border-color: var(--accent); }
+.flow b { font-family: var(--f-mono); font-size: 0.78rem; color: var(--accent); font-weight: 600; }
+.flow span { font-size: 0.9rem; }
+@media (max-width: 640px) { .flow { grid-template-columns: 1fr 1fr; gap: 18px 12px; } }
+
+/* ---------- Needs + close ---------- */
+.needs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; list-style: none; padding: 0; margin: 0; }
+.needs li { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; display: grid; gap: 2px; font-size: 0.92rem; }
+.needs li.key { border-color: var(--accent); }
+.needs li span { color: var(--muted); font-size: 0.84rem; }
+@media (max-width: 720px) { .needs { grid-template-columns: 1fr; } }
+.signoff { padding-top: 8px; display: grid; gap: 4px; }
+.signoff .name { font-family: var(--f-serif); font-style: italic; font-size: 1.6rem; }
+.foot { margin-top: 56px; padding-top: 16px; border-top: 1px solid var(--line); font-family: var(--f-mono); font-size: 0.7rem; color: var(--muted); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
+
+@media print {
+  body { padding-block-end: 0; }
+  section { break-inside: avoid; padding-block-start: 40px; }
+}
+</style>
+
+<div class="wrap">
+
+<header class="hero">
+  <div class="meta"><span>For dawynn</span><span>By Rehem Alam</span><span>30 Sep 2026</span></div>
+  <h1>Your performance.<br><em>Lincoln's face.</em></h1>
+  <div class="rule" role="presentation"></div>
+  <p class="lede">Face replacement for your short clips. Your actor's expression, timing and lighting stay exactly as filmed. Only the face becomes Lincoln.</p>
+  <div>
+    <div class="pair">
+      <figure class="shot"><img src="img/your-frame.jpg" alt="The client's frame: actor in top hat, vest and costume beard"><span class="tag">Your clip</span></figure>
+      <span class="arrow" aria-hidden="true">→</span>
+      <figure class="shot"><img src="img/lincoln-target.webp" alt="Target look: Abraham Lincoln in the same room, costume and lighting"><span class="tag t">Target look</span></figure>
+    </div>
+    <div class="pair-cap" style="margin-top:8px"><span>What you filmed</span><span>→</span><span>The Lincoln you want on screen</span></div>
+  </div>
+</header>
+
+<section aria-labelledby="scope">
+  <div class="head">
+    <span class="eyebrow">Scope</span>
+    <h2 id="scope">Just the face. Everything else stays.</h2>
+  </div>
+  <div class="kc">
+    <div class="keep">
+      <span class="k">Stays the same</span>
+      <ul>
+        <li>Expression, eye line and lip movement</li>
+        <li>Top hat, vest, shirt and room</li>
+        <li>Warm tungsten light and low camera angle</li>
+        <li>Clip length, timing and audio</li>
+      </ul>
+    </div>
+    <div class="change">
+      <span class="k">Becomes Lincoln</span>
+      <ul>
+        <li>Face shape, cheekbones and brow</li>
+        <li>Skin, age lines and deep-set eyes</li>
+        <li>Matched to every frame, including head turns</li>
+        <li>Lit and graded to sit in your shot</li>
+      </ul>
+    </div>
+  </div>
+  <div class="ask">
+    <b>One choice for you: the beard</b>
+    <p>Your actor wears a clip-on beard. I can keep it, or replace it with Lincoln's real chin beard (as in the target). Same price either way.</p>
+  </div>
+</section>
+
+<section aria-labelledby="process">
+  <div class="head">
+    <span class="eyebrow">Process</span>
+    <h2 id="process">How each clip is made</h2>
+  </div>
+  <div class="steps">
+    <article class="step">
+      <div class="pic"><img src="img/lincoln-target.webp" alt="Lincoln reference" style="object-position:58% 30%"><span class="n">01</span></div>
+      <h3>Lincoln reference</h3>
+      <p>One locked Lincoln likeness, used in every clip so he looks the same throughout.</p>
+    </article>
+    <article class="step">
+      <div class="pic">
+        <img src="img/your-frame.jpg" alt="Face tracking on the actor" style="object-position:58% 30%">
+        <svg class="mesh" viewBox="0 0 100 100" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
+          <g fill="none" stroke="#F6D9A8" stroke-width="0.5" opacity="0.9">
+            <ellipse cx="54" cy="44" rx="17" ry="23"/>
+            <path d="M40 38 Q54 34 68 38 M42 52 Q54 58 66 52 M54 30 L54 58 M46 44 L62 44"/>
+          </g>
+          <g fill="#F6D9A8"><circle cx="47" cy="38" r="0.9"/><circle cx="61" cy="38" r="0.9"/><circle cx="54" cy="48" r="0.9"/><circle cx="54" cy="56" r="0.9"/><circle cx="44" cy="52" r="0.9"/><circle cx="64" cy="52" r="0.9"/></g>
+        </svg>
+        <span class="n">02</span>
+      </div>
+      <h3>Track the face</h3>
+      <p>Your actor's face is tracked frame by frame, so every expression and mouth movement carries over.</p>
+    </article>
+    <article class="step">
+      <div class="pic">
+        <div class="half">
+          <img src="img/your-frame.jpg" alt="" style="object-fit:cover; object-position:56% 28%">
+          <img src="img/lincoln-target.webp" alt="" style="object-fit:cover; object-position:58% 28%">
+        </div>
+        <span class="seam"></span><span class="n">03</span>
+      </div>
+      <h3>Swap and clean up</h3>
+      <p>Lincoln's face goes on. Edges, the hat brim and hands passing in front of the face get fixed by hand.</p>
+    </article>
+    <article class="step">
+      <div class="pic"><img src="img/lincoln-target.webp" alt="Final colour match" style="object-position:30% 50%"><div class="grade"></div><span class="n">04</span></div>
+      <h3>Match and deliver</h3>
+      <p>Colour, grain and sharpness matched to your camera, so the swap is invisible.</p>
+    </article>
+  </div>
+</section>
+
+<section aria-labelledby="pricing">
+  <div class="head">
+    <span class="eyebrow">Price</span>
+    <h2 id="pricing">One simple rate</h2>
+  </div>
+  <div class="price-card">
+    <div class="big"><b>$50</b><span>per clip · up to 5 sec</span></div>
+    <ul>
+      <li>Full face replacement</li>
+      <li>Frame-by-frame cleanup</li>
+      <li>Colour and grain matched</li>
+      <li>Original resolution, audio kept</li>
+      <li>2 revisions per clip</li>
+      <li>Same rate for any number of clips</li>
+    </ul>
+  </div>
+  <div class="calc" role="table" aria-label="Total by number of clips">
+    <div role="row"><span>1 clip</span><b>$50</b></div>
+    <div role="row"><span>3 clips</span><b>$150</b></div>
+    <div role="row"><span>5 clips</span><b>$250</b></div>
+    <div role="row"><span>8 clips</span><b>$400</b></div>
+    <div role="row"><span>10 clips</span><b>$500</b></div>
+  </div>
+</section>
+
+<section aria-labelledby="timeline">
+  <div class="head">
+    <span class="eyebrow">Timeline</span>
+    <h2 id="timeline">You approve the look first</h2>
+  </div>
+  <div class="flow">
+    <div><b>Day 0</b><span>You send the clips</span></div>
+    <div class="hi"><b>Within 48h</b><span>First clip delivered for your approval</span></div>
+    <div><b>Next 2–4 days</b><span>Remaining clips, same look</span></div>
+    <div><b>Final</b><span>Revisions and delivery</span></div>
+  </div>
+</section>
+
+<section aria-labelledby="needs">
+  <div class="head">
+    <span class="eyebrow">To get started</span>
+    <h2 id="needs">What I need from you</h2>
+  </div>
+  <ul class="needs">
+    <li class="key"><b>Original clips</b><span>Straight from the camera, not screen recordings</span></li>
+    <li class="key"><b>Beard choice</b><span>Keep the costume beard, or use Lincoln's</span></li>
+    <li><b>Any notes</b><span>Order of clips, or moments to watch closely</span></li>
+  </ul>
+  <div class="signoff">
+    <p>Send the clips and I'll start with the first one right away.</p>
+    <span class="name">Rehem Alam</span>
+    <span class="muted mono" style="font-size:0.78rem">AI video · face replacement · compositing</span>
+  </div>
+</section>
+
+<footer class="foot">
+  <span>Lincoln face replacement · production plan</span>
+  <span>Prices in USD · valid for 14 days</span>
+</footer>
+
+</div>
