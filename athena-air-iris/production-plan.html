@@ -1,0 +1,718 @@
+<title>Iris Launch Film Plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..800;1,6..96,400..700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: a single reading column (max 880px) that opens out into wide bands for the storyboard strip and the pricing table. */
+:root {
+  --bg: #F2F3F7;
+  --surface: #FFFFFF;
+  --ink: #15161D;
+  --muted: #5C6070;
+  --line: #D8DBE5;
+  --accent: #5A48D6;        /* iris violet */
+  --accent-soft: #ECE9FB;
+  --heat: #C8731F;          /* temperature readout amber */
+  --heat-soft: #FBEEDD;
+  --frame: #1C1D26;         /* storyboard frame ground */
+  --frame-ink: #E9EAF1;
+  --frame-dim: #585B6C;
+  --iris: linear-gradient(90deg, #7A6CF0 0%, #53B8E6 30%, #6FD6B0 55%, #F2C46B 78%, #E98AB8 100%);
+  --f-display: "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
+  --f-body: "Hanken Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --step--1: 0.8125rem;
+  --step-0: 1rem;
+  --step-1: 1.1875rem;
+  --step-2: 1.5rem;
+  --step-3: 2.125rem;
+  --step-4: clamp(2.5rem, 7vw, 4.25rem);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0E0F14; --surface: #171821; --ink: #ECEDF3; --muted: #9A9EAE; --line: #2A2C39;
+    --accent: #A597FF; --accent-soft: #221F3B; --heat: #F0A657; --heat-soft: #33251A;
+    --frame: #07080B; --frame-ink: #E9EAF1; --frame-dim: #4A4D5C;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0E0F14; --surface: #171821; --ink: #ECEDF3; --muted: #9A9EAE; --line: #2A2C39;
+  --accent: #A597FF; --accent-soft: #221F3B; --heat: #F0A657; --heat-soft: #33251A;
+  --frame: #07080B; --frame-ink: #E9EAF1; --frame-dim: #4A4D5C;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--f-body); font-size: var(--step-0); line-height: 1.6;
+  padding-inline: 20px; padding-block: 0 64px;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 880px; margin-inline: auto; }
+.wide { max-width: 1160px; margin-inline: auto; }
+h1, h2, h3 { text-wrap: balance; margin: 0; }
+h2 { font-family: var(--f-display); font-weight: 500; font-size: var(--step-3); line-height: 1.15; letter-spacing: -0.01em; }
+h3 { font-size: var(--step-1); font-weight: 700; line-height: 1.3; }
+p { margin: 0; max-width: 66ch; }
+.eyebrow { font-family: var(--f-mono); font-size: var(--step--1); letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
+.muted { color: var(--muted); }
+.mono { font-family: var(--f-mono); font-variant-numeric: tabular-nums; }
+a { color: var(--accent); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+section { padding-block: 56px 0; display: grid; gap: 20px; }
+.section-head { display: grid; gap: 10px; }
+
+/* ---------- Hero ---------- */
+.hero { padding-block: 56px 8px; display: grid; gap: 24px; }
+.hero .meta { display: flex; flex-wrap: wrap; gap: 8px 24px; font-family: var(--f-mono); font-size: var(--step--1); color: var(--muted); }
+.hero h1 { font-family: var(--f-display); font-weight: 500; font-size: var(--step-4); line-height: 1.02; letter-spacing: -0.02em; }
+.hero h1 em { font-style: italic; color: var(--accent); }
+.spectrum { height: 3px; width: 100%; background: var(--iris); border-radius: 2px; }
+.hero .lede { font-size: var(--step-1); color: var(--muted); max-width: 60ch; }
+.readout {
+  display: inline-flex; align-items: baseline; gap: 6px;
+  font-family: var(--f-mono); color: var(--heat); background: var(--heat-soft);
+  padding: 2px 8px; border-radius: 4px; font-size: 0.92em;
+}
+
+/* ---------- Brief recap ---------- */
+.recap { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+.recap div { background: var(--surface); padding: 18px 20px; display: grid; gap: 4px; align-content: start; }
+.recap dt { font-family: var(--f-mono); font-size: var(--step--1); color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; }
+.recap dd { margin: 0; font-weight: 600; }
+
+/* ---------- Strategy ---------- */
+.big-quote { font-family: var(--f-display); font-style: italic; font-size: var(--step-2); line-height: 1.3; border-left: 2px solid var(--accent); padding-left: 20px; max-width: 34ch; }
+.principles { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px 32px; }
+.principles div { display: grid; gap: 6px; align-content: start; }
+.principles h3 { font-size: var(--step-0); }
+.principles p { color: var(--muted); font-size: 0.95rem; }
+
+/* ---------- Style layers ---------- */
+.layers { display: grid; gap: 0; border-top: 1px solid var(--line); }
+.layer { display: grid; grid-template-columns: 160px 1fr; gap: 8px 28px; padding-block: 18px; border-bottom: 1px solid var(--line); }
+.layer .tag { font-family: var(--f-mono); font-size: var(--step--1); letter-spacing: 0.06em; text-transform: uppercase; padding-top: 3px; }
+.layer p { color: var(--muted); }
+.layer strong { color: var(--ink); }
+.chip { display: inline-block; font-family: var(--f-mono); font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; padding: 2px 8px; border-radius: 999px; border: 1px solid currentColor; white-space: nowrap; }
+.c-real { color: var(--ink); }
+.c-ai { color: var(--accent); }
+.c-mg { color: var(--heat); }
+.c-comp { color: #2F9C86; }
+@media (max-width: 600px) { .layer { grid-template-columns: 1fr; } }
+
+/* ---------- Accuracy protocol ---------- */
+.protocol { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 28px; display: grid; gap: 24px; }
+.tiers { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 24px; }
+.tiers div { display: grid; gap: 8px; align-content: start; }
+.tiers .n { font-family: var(--f-display); font-size: var(--step-3); line-height: 1; color: var(--accent); }
+.tiers p { color: var(--muted); font-size: 0.95rem; }
+.qc { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 0; }
+.qc li { font-size: 0.9rem; padding: 6px 12px; border-radius: 6px; background: var(--accent-soft); }
+.qc li::before { content: "✓ "; color: var(--accent); font-weight: 700; }
+
+/* ---------- Storyboard ---------- */
+.board { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 28px 20px; }
+.shot { display: grid; gap: 10px; align-content: start; min-width: 0; }
+.shot svg { width: 100%; max-width: 100%; aspect-ratio: 9 / 16; display: block; border-radius: 8px; background: var(--frame); }
+.shot .tc { display: flex; justify-content: space-between; align-items: center; gap: 8px; font-family: var(--f-mono); font-size: var(--step--1); color: var(--muted); }
+.shot h3 { font-size: 1rem; }
+.shot p { font-size: 0.9rem; color: var(--muted); }
+.shot .ost { font-size: 0.85rem; border-left: 2px solid var(--heat); padding-left: 10px; color: var(--ink); }
+.shot .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.f-ink { fill: var(--frame-ink); }
+.f-dim { fill: var(--frame-dim); }
+.s-dim { stroke: var(--frame-dim); fill: none; }
+.s-ink { stroke: var(--frame-ink); fill: none; }
+.f-heat { fill: #F0A657; }
+.f-acc { fill: #A597FF; }
+.t-ink { fill: var(--frame-ink); font-family: var(--f-body); }
+.t-heat { fill: #F0A657; font-family: var(--f-mono); font-weight: 600; }
+.t-cap { fill: var(--frame-ink); font-family: var(--f-body); font-weight: 600; }
+.sketch-note { font-size: var(--step--1); color: var(--muted); font-family: var(--f-mono); }
+
+/* timing bar */
+.timebar { display: grid; grid-template-columns: 3fr 3fr 4fr 5fr 5fr 4fr 4fr; height: 34px; border-radius: 6px; overflow: hidden; font-family: var(--f-mono); font-size: 0.7rem; }
+.timebar span { display: flex; align-items: center; justify-content: center; border-right: 1px solid var(--bg); color: var(--ink); white-space: nowrap; overflow: hidden; }
+.timebar .h { background: var(--heat-soft); color: var(--heat); font-weight: 600; }
+.timebar .b { background: var(--accent-soft); }
+.timebar .e { background: var(--ink); color: var(--bg); }
+.timescale { display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 0.7rem; color: var(--muted); }
+
+/* ---------- Hooks ---------- */
+.hooks { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+.hook { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 22px; display: grid; gap: 12px; align-content: start; }
+.hook .label { font-family: var(--f-mono); font-size: var(--step--1); color: var(--heat); letter-spacing: 0.08em; text-transform: uppercase; }
+.hook h3 { font-family: var(--f-display); font-weight: 500; font-size: var(--step-2); }
+.hook p { font-size: 0.93rem; color: var(--muted); }
+.hook .line { font-size: 0.93rem; font-weight: 600; color: var(--ink); }
+.hook dl { display: grid; grid-template-columns: auto 1fr; gap: 4px 12px; margin: 0; font-size: 0.85rem; }
+.hook dt { color: var(--muted); font-family: var(--f-mono); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; padding-top: 2px; }
+.hook dd { margin: 0; }
+
+.testplan { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; }
+.testplan div { border-top: 2px solid var(--ink); padding-top: 10px; display: grid; gap: 4px; align-content: start; }
+.testplan b { font-family: var(--f-mono); font-size: var(--step--1); letter-spacing: 0.06em; text-transform: uppercase; }
+.testplan p { font-size: 0.9rem; color: var(--muted); }
+
+/* ---------- Pipeline ---------- */
+.pipeline { list-style: none; padding: 0; margin: 0; display: grid; gap: 0; counter-reset: step; }
+.pipeline li { counter-increment: step; display: grid; grid-template-columns: 56px 1fr; gap: 4px 16px; padding-block: 16px; border-bottom: 1px solid var(--line); }
+.pipeline li::before { content: counter(step, decimal-leading-zero); font-family: var(--f-mono); color: var(--accent); font-size: var(--step-1); grid-row: span 2; }
+.pipeline h3 { font-size: var(--step-0); }
+.pipeline p { color: var(--muted); font-size: 0.95rem; }
+
+.callout { background: var(--accent-soft); border-radius: 12px; padding: 24px 26px; display: grid; gap: 12px; }
+.callout h3 { font-family: var(--f-display); font-weight: 500; font-size: var(--step-2); }
+.ratio { display: flex; flex-wrap: wrap; gap: 16px 36px; }
+.ratio div { display: grid; gap: 2px; }
+.ratio b { font-family: var(--f-display); font-size: var(--step-3); font-weight: 500; line-height: 1; font-variant-numeric: tabular-nums; }
+.ratio span { font-size: var(--step--1); color: var(--muted); }
+
+/* ---------- Assets ---------- */
+.assets { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px 32px; list-style: none; padding: 0; margin: 0; }
+.assets li { display: grid; grid-template-columns: 22px 1fr; gap: 10px; padding-block: 10px; border-bottom: 1px solid var(--line); font-size: 0.95rem; }
+.assets li span:first-child { font-family: var(--f-mono); font-size: 0.75rem; padding-top: 3px; }
+.assets .must { color: var(--heat); }
+.assets .nice { color: var(--muted); }
+.assets small { display: block; color: var(--muted); font-size: 0.85rem; }
+
+/* ---------- Pricing ---------- */
+.availability { border: 1px solid var(--line); border-left: 3px solid var(--heat); background: var(--surface); border-radius: 8px; padding: 18px 22px; display: grid; gap: 6px; }
+.availability b { font-family: var(--f-mono); font-size: var(--step--1); letter-spacing: 0.08em; text-transform: uppercase; color: var(--heat); }
+.plans { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; align-items: start; }
+.plan { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 26px 24px; display: grid; gap: 16px; }
+.plan.featured { border: 2px solid var(--accent); position: relative; }
+.plan .flag { position: absolute; top: -12px; left: 22px; background: var(--accent); color: var(--surface); font-family: var(--f-mono); font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 10px; border-radius: 999px; }
+.plan h3 { font-family: var(--f-display); font-weight: 500; font-size: var(--step-2); }
+.plan .price { font-family: var(--f-display); font-size: 3rem; line-height: 1; font-variant-numeric: tabular-nums; }
+.plan .price small { font-family: var(--f-mono); font-size: 0.8rem; color: var(--muted); margin-left: 6px; }
+.plan .spec { display: grid; grid-template-columns: auto 1fr; gap: 6px 14px; font-size: 0.88rem; padding-block: 12px; border-block: 1px solid var(--line); margin: 0; }
+.plan .spec dt { color: var(--muted); font-family: var(--f-mono); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; padding-top: 2px; }
+.plan .spec dd { margin: 0; font-weight: 600; font-variant-numeric: tabular-nums; }
+.plan ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 7px; font-size: 0.9rem; }
+.plan li { display: grid; grid-template-columns: 16px 1fr; gap: 8px; }
+.plan li::before { content: "+"; color: var(--accent); font-weight: 700; }
+.plan .fit { font-size: 0.85rem; color: var(--muted); font-style: italic; }
+
+.compare-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; min-width: 620px; font-size: 0.9rem; }
+th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+thead th { font-family: var(--f-mono); font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+tbody th { font-weight: 600; }
+td { font-variant-numeric: tabular-nums; }
+tr:last-child td, tr:last-child th { border-bottom: 0; }
+
+.addons { display: flex; flex-wrap: wrap; gap: 10px; }
+.addons span { font-size: 0.88rem; padding: 8px 14px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+.addons b { font-family: var(--f-mono); color: var(--accent); margin-left: 6px; }
+
+/* ---------- Timeline ---------- */
+.timeline { display: grid; gap: 0; }
+.tl-row { display: grid; grid-template-columns: 150px 1fr; gap: 16px; align-items: center; padding-block: 8px; font-size: 0.9rem; }
+.tl-track { position: relative; height: 22px; background: var(--accent-soft); border-radius: 4px; }
+.tl-bar { position: absolute; top: 0; bottom: 0; background: var(--accent); border-radius: 4px; display: flex; align-items: center; padding-inline: 8px; color: var(--surface); font-family: var(--f-mono); font-size: 0.7rem; white-space: nowrap; overflow: hidden; }
+.tl-scale { display: grid; grid-template-columns: 150px 1fr; gap: 16px; font-family: var(--f-mono); font-size: 0.7rem; color: var(--muted); }
+.tl-scale div:last-child { display: flex; justify-content: space-between; }
+@media (max-width: 560px) { .tl-row, .tl-scale { grid-template-columns: 96px 1fr; gap: 10px; } .tl-row { font-size: 0.8rem; } }
+
+/* ---------- Close ---------- */
+.next { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; counter-reset: n; }
+.next li { counter-increment: n; display: grid; grid-template-columns: 34px 1fr; gap: 12px; align-items: baseline; }
+.next li::before { content: counter(n); font-family: var(--f-display); font-size: var(--step-2); color: var(--accent); line-height: 1; }
+.signoff { padding-top: 40px; display: grid; gap: 6px; }
+.signoff .name { font-family: var(--f-display); font-style: italic; font-size: var(--step-2); }
+.foot { margin-top: 56px; padding-top: 16px; border-top: 1px solid var(--line); font-family: var(--f-mono); font-size: 0.72rem; color: var(--muted); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .spectrum { background-size: 200% 100%; animation: drift 9s ease-in-out infinite alternate; }
+  @keyframes drift { from { background-position: 0% 0; } to { background-position: 100% 0; } }
+}
+</style>
+
+<!-- Reusable storyboard drawings -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- Generic dryer silhouette: sketch placeholder, replaced by real Iris plates in production -->
+    <symbol id="dryer" viewBox="0 0 60 60">
+      <rect x="4" y="8" width="44" height="18" rx="9" class="f-ink"/>
+      <rect x="46" y="11" width="10" height="12" rx="3" class="f-ink"/>
+      <rect x="20" y="24" width="11" height="32" rx="5" class="f-ink"/>
+      <rect x="7" y="11" width="13" height="12" rx="3" fill="#A597FF" fill-opacity="0.35" stroke="#A597FF" stroke-width="0.8"/>
+    </symbol>
+    <linearGradient id="sweep" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#7A6CF0" stop-opacity="0"/>
+      <stop offset="0.45" stop-color="#53B8E6" stop-opacity="0.55"/>
+      <stop offset="0.6" stop-color="#F2C46B" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#E98AB8" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="warm" cx="0.7" cy="0.2" r="0.9">
+      <stop offset="0" stop-color="#F2C46B" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#F2C46B" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>
+
+<div class="wrap">
+
+<header class="hero">
+  <div class="meta">
+    <span>Prepared for Adrian · Athena Air, Perth</span>
+    <span>By Rehem Alak</span>
+    <span>30 Sep 2026</span>
+  </div>
+  <h1>Iris launch ad.<br><em>Heat you can see.</em></h1>
+  <div class="spectrum" role="presentation"></div>
+  <p class="lede">A production plan for a 25–30 second vertical ad for Meta and TikTok. It combines your real product footage with AI-generated scenes, motion graphics and traditional editing. The Floating Display is the hero, and product accuracy is locked from the first frame to the last.</p>
+</header>
+
+<section aria-labelledby="brief">
+  <div class="section-head">
+    <span class="eyebrow">What I heard</span>
+    <h2 id="brief">Your brief, in one screen</h2>
+  </div>
+  <dl class="recap">
+    <div><dt>Product</dt><dd>Iris, a lightweight hairdryer with a transparent Floating Display™ showing drying temperature in real time</dd></div>
+    <div><dt>Format</dt><dd>25–30s vertical 9:16, with 2–3 opening hooks to test</dd></div>
+    <div><dt>Channels</dt><dd>Meta (Reels, Stories, Feed) and TikTok</dd></div>
+    <div><dt>Non-negotiable</dt><dd>Shape, branding, colours and the transparent display stay accurate, especially in hand and in use</dd></div>
+    <div><dt>Method</dt><dd>Real product images and footage, AI scenes, compositing, motion graphics</dd></div>
+    <div><dt>Longer term</dt><dd>A repeatable creative partner as Athena Air grows</dd></div>
+  </dl>
+</section>
+
+<section aria-labelledby="strategy">
+  <div class="section-head">
+    <span class="eyebrow">Strategy</span>
+    <h2 id="strategy">Sell the number, not the dryer</h2>
+  </div>
+  <p>Every premium dryer claims to protect your hair. Almost none can show it. Iris can: the temperature floats in front of you while you dry. That readout is the most ownable asset you have, so the ad treats it as proof rather than a feature. When the viewer sees the number, the claim becomes believable.</p>
+  <p class="big-quote">“Most dryers never tell you how hot they are. Iris shows you.”</p>
+  <p>There is a second layer worth using. In Greek myth Iris is the messenger goddess of the rainbow, the one who carries light between worlds. We borrow that idea visually with a restrained spectrum of light passing through the transparent display. It gives the brand a signature look that stays consistent across every future ad.</p>
+  <div class="principles">
+    <div><h3>Hook inside 1.5 seconds</h3><p>Feeds are scrolled at thumb speed. Each hook opens on motion, a question or a pattern break before the viewer can decide to leave.</p></div>
+    <div><h3>Product on screen by second 3</h3><p>Ads that show the product early build recall even for people who never finish watching. Iris appears in every hook within the first three seconds.</p></div>
+    <div><h3>Built for sound off</h3><p>Most people watch Reels and Stories muted, so captions and on-screen type carry the whole story. Sound design adds to it for TikTok, where audio is on by default.</p></div>
+    <div><h3>Native first, premium second</h3><p>Open with something that feels like it belongs in the feed, then move into a polished product world. The contrast makes the premium section feel earned.</p></div>
+    <div><h3>One message</h3><p>Visible heat means control, and control means healthier-looking hair. Lightweight feel and design are supporting proof, not separate stories.</p></div>
+    <div><h3>Modular by design</h3><p>Hooks, body and end card are separate modules, so new hooks and offers can be swapped in later without rebuilding the ad.</p></div>
+  </div>
+</section>
+
+<section aria-labelledby="styles">
+  <div class="section-head">
+    <span class="eyebrow">The visual recipe</span>
+    <h2 id="styles">Four styles in one ad, each with its own job</h2>
+  </div>
+  <div class="layers">
+    <div class="layer"><span class="tag"><span class="chip c-real">Real footage</span></span><p><strong>Your product, filmed or photographed.</strong> Every close-up of Iris and every macro of the display comes from real plates. This is where accuracy is carried.</p></div>
+    <div class="layer"><span class="tag"><span class="chip c-ai">AI scenes</span></span><p><strong>The world around the product.</strong> Morning bathrooms full of Perth light, hair movement, coastal exteriors and model shots, generated at a scale a physical shoot couldn't match on this budget.</p></div>
+    <div class="layer"><span class="tag"><span class="chip c-comp">Compositing</span></span><p><strong>The bridge between the two.</strong> Real Iris plates are tracked, lit and colour-matched into AI scenes, so when someone holds or uses the dryer, it is your dryer.</p></div>
+    <div class="layer"><span class="tag"><span class="chip c-mg">Motion graphics</span></span><p><strong>The readout and the message.</strong> The display's live temperature, kinetic captions, spectrum light sweeps and the end card. The numbers are designed, not generated, so they are always legible and correct.</p></div>
+    <div class="layer"><span class="tag"><span class="chip c-real">Editing</span></span><p><strong>Pace, rhythm and sound.</strong> Beat-matched cuts, match cuts between scenes, a unified colour grade, and sound design (airflow, clicks, a warm tonal rise as temperature climbs).</p></div>
+  </div>
+</section>
+
+<section aria-labelledby="accuracy">
+  <div class="section-head">
+    <span class="eyebrow">Product accuracy protocol</span>
+    <h2 id="accuracy">Iris is never left to AI’s imagination</h2>
+  </div>
+  <p>You asked whether I'm comfortable keeping the dryer accurate, including with real footage and compositing. Yes. It's the core of how I work on physical products. AI video models tend to redraw products, soften logos and invent buttons, so the plan is designed around never trusting them with the product itself.</p>
+  <div class="protocol">
+    <div class="tiers">
+      <div><span class="n">1</span><h3>Real plates for close-ups</h3><p>All hero, macro and display shots use your real footage or photography, cleaned up, relit and graded. No AI generation in these frames.</p></div>
+      <div><span class="n">2</span><h3>Composite, don't generate</h3><p>In hand-held and in-use scenes, the AI scene is generated around a stand-in, then the real Iris is tracked, masked and composited over it frame by frame.</p></div>
+      <div><span class="n">3</span><h3>Readouts are graphics</h3><p>The Floating Display's numbers are rebuilt as motion graphics in your display's real font and colour, and placed inside the transparent panel with glass reflections.</p></div>
+    </div>
+    <div>
+      <h3 style="margin-bottom:10px">Frame-by-frame QC before anything reaches you</h3>
+      <ul class="qc">
+        <li>Silhouette and proportions</li>
+        <li>Logo position and legibility</li>
+        <li>Colourway matched to your hex values</li>
+        <li>Display transparency and digit accuracy</li>
+        <li>Nozzle, buttons and cable details</li>
+        <li>Hand grip and scale</li>
+        <li>No morphing between frames</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<div class="wide">
+<section aria-labelledby="board">
+  <div class="section-head wrap" style="margin-inline:0; max-width:880px">
+    <span class="eyebrow">Storyboard · 28 seconds · 9:16</span>
+    <h2 id="board">The shot plan</h2>
+    <p class="muted">Seven beats. The first 3 seconds swap between the three hooks below, and everything after is shared. The frames are layout sketches: the dryer is a placeholder shape, and production uses your real Iris.</p>
+  </div>
+
+  <div>
+    <div class="timebar" role="img" aria-label="Timeline: hook 0 to 3 seconds, problem 3 to 6, reveal 6 to 10, proof 10 to 15, in use 15 to 20, benefits 20 to 24, end card 24 to 28">
+      <span class="h">Hook</span><span class="b">Problem</span><span class="b">Reveal</span><span class="b">Proof</span><span class="b">In use</span><span class="b">Benefits</span><span class="e">End card</span>
+    </div>
+    <div class="timescale" style="margin-top:6px"><span>0s</span><span>7s</span><span>14s</span><span>21s</span><span>28s</span></div>
+  </div>
+
+  <div class="board">
+
+    <article class="shot">
+      <svg viewBox="0 0 90 160" role="img" aria-label="Sketch: a glowing temperature number floats in darkness">
+        <rect width="90" height="160" fill="url(#warm)"/>
+        <text x="45" y="80" text-anchor="middle" class="t-heat" font-size="20">57°</text>
+        <rect x="26" y="62" width="38" height="26" rx="4" class="s-dim" stroke-width="0.6" stroke-dasharray="2 2"/>
+        <text x="45" y="132" text-anchor="middle" class="t-cap" font-size="5.2">How hot is your dryer</text>
+        <text x="45" y="139" text-anchor="middle" class="t-cap" font-size="5.2">right now?</text>
+      </svg>
+      <div class="tc"><span>00:00–00:03</span><span>Hook</span></div>
+      <h3>Hook A–C (see below)</h3>
+      <p>Opens on the readout, a problem or a POV moment. Each hook shows Iris by 00:03.</p>
+      <div class="chips"><span class="chip c-mg">Motion GFX</span><span class="chip c-real">Real</span></div>
+    </article>
+
+    <article class="shot">
+      <svg viewBox="0 0 90 160" role="img" aria-label="Sketch: woman in a bright bathroom drying frizzy hair with a generic dryer">
+        <rect width="90" height="160" fill="url(#warm)"/>
+        <rect x="8" y="14" width="30" height="46" rx="2" class="s-dim" stroke-width="0.8"/>
+        <circle cx="52" cy="70" r="15" class="f-dim"/>
+        <path d="M38 62 q-6 -8 -2 -16 M40 70 q-8 -4 -8 -12 M66 60 q7 -8 4 -16 M68 70 q9 -3 9 -11" class="s-ink" stroke-width="0.8"/>
+        <rect x="42" y="96" width="20" height="44" rx="8" class="f-dim"/>
+        <rect x="64" y="46" width="18" height="8" rx="4" class="f-dim"/>
+        <text x="45" y="148" text-anchor="middle" class="t-cap" font-size="4.6">Most dryers never tell you</text>
+        <text x="45" y="154" text-anchor="middle" class="t-cap" font-size="4.6">how hot they are.</text>
+      </svg>
+      <div class="tc"><span>00:03–00:06</span><span>Problem</span></div>
+      <h3>The guessing game</h3>
+      <p>Morning bathroom, hard Perth sun through the window. A generic unbranded dryer on full blast, flyaways lifting. Handheld, slightly rushed.</p>
+      <p class="ost">“Most dryers never tell you how hot they are.”</p>
+      <div class="chips"><span class="chip c-ai">AI scene</span></div>
+    </article>
+
+    <article class="shot">
+      <svg viewBox="0 0 90 160" role="img" aria-label="Sketch: the dryer rotating as a spectrum of light sweeps across its display">
+        <rect width="90" height="160" fill="url(#sweep)" opacity="0.5"/>
+        <use href="#dryer" x="12" y="46" width="66" height="66"/>
+        <path d="M0 40 L90 100" stroke="url(#sweep)" stroke-width="10" opacity="0.8"/>
+        <text x="45" y="140" text-anchor="middle" class="t-ink" font-family="Bodoni Moda, Georgia, serif" font-size="11" font-style="italic">Meet Iris.</text>
+      </svg>
+      <div class="tc"><span>00:06–00:10</span><span>Reveal</span></div>
+      <h3>Meet Iris</h3>
+      <p>Hard cut to silence, then a slow turntable reveal of the real Iris. A spectrum of light passes through the transparent display as it switches on.</p>
+      <p class="ost">“Meet Iris.”</p>
+      <div class="chips"><span class="chip c-real">Real</span><span class="chip c-mg">Light sweep</span></div>
+    </article>
+
+    <article class="shot">
+      <svg viewBox="0 0 90 160" role="img" aria-label="Sketch: macro of the transparent display with the temperature counting up">
+        <rect x="10" y="40" width="70" height="60" rx="6" fill="#A597FF" fill-opacity="0.12" stroke="#A597FF" stroke-width="0.8"/>
+        <path d="M14 46 L40 46" stroke="#E9EAF1" stroke-opacity="0.3" stroke-width="2"/>
+        <text x="45" y="80" text-anchor="middle" class="t-heat" font-size="22">57°C</text>
+        <text x="45" y="92" text-anchor="middle" class="t-ink" font-size="4.5" opacity="0.7">LIVE</text>
+        <text x="45" y="128" text-anchor="middle" class="t-cap" font-size="5">Real-time temperature.</text>
+        <text x="45" y="135" text-anchor="middle" class="t-cap" font-size="5">Right where you look.</text>
+      </svg>
+      <div class="tc"><span>00:10–00:15</span><span>Proof</span></div>
+      <h3>The number moves</h3>
+      <p>Macro through the glass. The readout climbs, then settles as the heat setting changes. A soft tonal rise in the audio follows the number. Figures shown here are illustrative and will match Iris's real settings.</p>
+      <p class="ost">“Real-time temperature. Right where you look.”</p>
+      <div class="chips"><span class="chip c-real">Real</span><span class="chip c-mg">Readout GFX</span></div>
+    </article>
+
+    <article class="shot">
+      <svg viewBox="0 0 90 160" role="img" aria-label="Sketch: woman drying hair holding the dryer with the display visible">
+        <rect width="90" height="160" fill="url(#warm)"/>
+        <circle cx="34" cy="64" r="15" class="f-dim"/>
+        <path d="M20 58 q-4 16 4 30 M48 58 q4 16 -2 30" class="s-dim" stroke-width="3"/>
+        <rect x="24" y="96" width="22" height="46" rx="8" class="f-dim"/>
+        <use href="#dryer" x="46" y="44" width="40" height="40"/>
+        <text x="72" y="46" text-anchor="middle" class="t-heat" font-size="5">57°</text>
+        <path d="M66 49 L63 54" stroke="#F0A657" stroke-width="0.5"/>
+      </svg>
+      <div class="tc"><span>00:15–00:20</span><span>In use</span></div>
+      <h3>Control, in hand</h3>
+      <p>AI lifestyle scene with the real Iris composited into her hand. Her eyes flick to the display, she lowers the heat, and her hair falls smooth. The key accuracy shot.</p>
+      <p class="ost">“See it. Adjust it. Protect your hair.”</p>
+      <div class="chips"><span class="chip c-ai">AI scene</span><span class="chip c-comp">Composite</span></div>
+    </article>
+
+    <article class="shot">
+      <svg viewBox="0 0 90 160" role="img" aria-label="Sketch: split frames of one-finger hold and hair movement">
+        <rect x="6" y="10" width="78" height="44" rx="3" class="s-dim" stroke-width="0.6"/>
+        <use href="#dryer" x="28" y="14" width="34" height="34"/>
+        <path d="M38 50 q4 -6 8 0" class="s-ink" stroke-width="1"/>
+        <rect x="6" y="58" width="78" height="44" rx="3" class="s-dim" stroke-width="0.6"/>
+        <path d="M14 96 q20 -40 40 -30 t26 -8 M14 90 q20 -36 42 -26 t24 -10 M14 84 q20 -34 44 -22" class="s-ink" stroke-width="0.8" opacity="0.8"/>
+        <rect x="6" y="106" width="78" height="30" rx="3" fill="url(#warm)" style="stroke:var(--frame-dim)" stroke-width="0.6"/>
+        <path d="M6 126 q20 -6 40 0 t38 0" class="s-dim" stroke-width="0.8"/>
+        <text x="45" y="148" text-anchor="middle" class="t-cap" font-size="4.8">Lighter in hand. Kinder to hair.</text>
+      </svg>
+      <div class="tc"><span>00:20–00:24</span><span>Benefits</span></div>
+      <h3>Quick-cut proof</h3>
+      <p>Three beat-matched cuts: a one-finger hold (real), slow-motion glossy hair movement (AI), and her walking out into coastal Perth light (AI).</p>
+      <p class="ost">“Lighter in hand. Kinder to hair.”</p>
+      <div class="chips"><span class="chip c-real">Real</span><span class="chip c-ai">AI scene</span></div>
+    </article>
+
+    <article class="shot">
+      <svg viewBox="0 0 90 160" role="img" aria-label="Sketch: end card with product, brand name and call to action">
+        <rect width="90" height="160" fill="url(#sweep)" opacity="0.25"/>
+        <use href="#dryer" x="20" y="30" width="50" height="50"/>
+        <text x="45" y="98" text-anchor="middle" class="t-ink" font-family="Bodoni Moda, Georgia, serif" font-size="12">Iris</text>
+        <text x="45" y="106" text-anchor="middle" class="t-ink" font-size="4.2" letter-spacing="1" opacity="0.7">ATHENA AIR</text>
+        <text x="45" y="118" text-anchor="middle" class="t-heat" font-size="5">See the heat.</text>
+        <rect x="22" y="128" width="46" height="11" rx="5.5" class="f-ink"/>
+        <text x="45" y="135.5" text-anchor="middle" font-family="Hanken Grotesk, Arial, sans-serif" font-weight="700" font-size="4.6" fill="#15161D">Shop the launch</text>
+      </svg>
+      <div class="tc"><span>00:24–00:28</span><span>End card</span></div>
+      <h3>See the heat</h3>
+      <p>Clean packshot in brand colours, logo lock-up, tagline and launch offer. Kept inside Reels and TikTok safe zones so the platform UI never covers the CTA.</p>
+      <p class="ost">“Iris by Athena Air. See the heat.” + your offer</p>
+      <div class="chips"><span class="chip c-real">Real</span><span class="chip c-mg">Motion GFX</span></div>
+    </article>
+
+  </div>
+  <p class="sketch-note">Captions and supers are draft copy. I'll align them with your scripts and approved product claims before production.</p>
+</section>
+</div>
+
+<div class="wrap">
+
+<section aria-labelledby="hooks">
+  <div class="section-head">
+    <span class="eyebrow">Opening hooks · 0–3s</span>
+    <h2 id="hooks">Three hooks, three psychological triggers</h2>
+    <p class="muted">Each hook tests a different reason to stop scrolling. The body and end card stay the same, so the test shows which opener works best.</p>
+  </div>
+  <div class="hooks">
+    <article class="hook">
+      <span class="label">Hook A · Curiosity</span>
+      <h3>The Floating Number</h3>
+      <p>Black screen. A glowing temperature reading hangs in mid-air. The camera pulls back to reveal it floating inside Iris's transparent display.</p>
+      <p class="line">“How hot is your hair dryer right now?”</p>
+      <dl><dt>Why it works</dt><dd>An unanswered question plus an image the viewer hasn't seen before</dd><dt>Best on</dt><dd>Meta Reels and Stories</dd></dl>
+    </article>
+    <article class="hook">
+      <span class="label">Hook B · Problem</span>
+      <h3>Your Dryer’s Secret</h3>
+      <p>Extreme macro of a hair strand in hot airflow, with a high-pitched rising tone. A caption stamps on. Cut to Iris with its number visible.</p>
+      <p class="line">“Your dryer has been hiding something from you.”</p>
+      <dl><dt>Why it works</dt><dd>Names a worry viewers already have (heat damage), then offers the fix</dd><dt>Best on</dt><dd>Meta Feed and retargeting</dd></dl>
+    </article>
+    <article class="hook">
+      <span class="label">Hook C · Native POV</span>
+      <h3>The Unboxing Flex</h3>
+      <p>Phone-style POV. A hand pulls Iris from a bag and clicks it on, and the display floats up. The shot then snaps into the polished product world.</p>
+      <p class="line">“POV: your hairdryer has a floating display.”</p>
+      <dl><dt>Why it works</dt><dd>Looks like creator content, so viewers don't skip it as an ad</dd><dt>Best on</dt><dd>TikTok and Reels</dd></dl>
+    </article>
+  </div>
+
+  <h3 style="margin-top:12px">How we test them</h3>
+  <div class="testplan">
+    <div><b>Launch</b><p>All three hooks in one ad set with equal budget, running 3–5 days.</p></div>
+    <div><b>Read</b><p>Hook rate (3-second views ÷ impressions), hold rate to 15 seconds, CTR and cost per purchase.</p></div>
+    <div><b>Keep</b><p>Scale the winning hook and pause the others once there's enough data.</p></div>
+    <div><b>Iterate</b><p>Build 2 new variations of the winner. This is where a regular working relationship pays off.</p></div>
+  </div>
+</section>
+
+<section aria-labelledby="pipeline">
+  <div class="section-head">
+    <span class="eyebrow">Workflow</span>
+    <h2 id="pipeline">From brief to test-ready files</h2>
+  </div>
+  <ol class="pipeline">
+    <li><h3>Discovery and asset intake</h3><p>I review your scripts, product files, brand guide and approved claims, and audit the footage for what can be used as hero plates.</p></li>
+    <li><h3>Creative lock</h3><p>Final script, storyboard and three hooks, signed off by you before any generation starts. This step saves the most time later.</p></li>
+    <li><h3>Product plate preparation</h3><p>Cut-outs, clean-up, relighting and colour-matching of your product images and footage, plus rebuilding the display readout as graphics.</p></li>
+    <li><h3>AI scene generation</h3><p>Lifestyle scenes generated with reference frames for consistent lighting, talent and set. Many takes per shot, curated down to the best.</p></li>
+    <li><h3>Compositing and product lock</h3><p>The real Iris is tracked into hand-held and in-use shots, then checked frame by frame against the accuracy list.</p></li>
+    <li><h3>Motion graphics</h3><p>Floating Display animation, kinetic captions, spectrum light sweeps and the end card.</p></li>
+    <li><h3>Edit, sound and grade</h3><p>Beat-matched edit, sound design, licensed music and one colour grade across real and AI footage.</p></li>
+    <li><h3>Review rounds</h3><p>You review a watermarked cut with time-coded notes. I revise and send it back.</p></li>
+    <li><h3>Delivery</h3><p>Platform-ready exports with safe zones checked, burned-in captions and clearly named hook variants, ready to upload to Ads Manager.</p></li>
+  </ol>
+
+  <div class="callout">
+    <h3>Why product ads take more work than they look</h3>
+    <p>AI generation doesn't produce one clip on request. It produces a set of takes, and most get rejected: a hand grips wrong, the light doesn't match, hair moves unnaturally, or something morphs mid-shot. For a product that has to stay accurate, the bar is higher still.</p>
+    <p>This project also needs a lot of image editing. Every product image used as a reference or composite has to be cut out, cleaned, relit and colour-matched to its scene. Many are reworked several times as the scenes change. Here is a typical ratio for an ad like this:</p>
+    <div class="ratio">
+      <div><b class="mono">10–15</b><span>generations per usable AI shot</span></div>
+      <div><b class="mono">80–120</b><span>total clips generated to keep ~8</span></div>
+      <div><b class="mono">40+</b><span>product images edited and composited</span></div>
+      <div><b class="mono">~840</b><span>frames checked at 30fps for 28s</span></div>
+    </div>
+    <p>That ratio is built into every tier below. You pay for a finished, accurate ad, not per attempt.</p>
+  </div>
+</section>
+
+<section aria-labelledby="assets">
+  <div class="section-head">
+    <span class="eyebrow">What I need from you</span>
+    <h2 id="assets">Asset checklist</h2>
+    <p class="muted"><span style="color:var(--heat)">●</span> Needed to start &nbsp; <span>○</span> Helpful, and makes the result stronger</p>
+  </div>
+  <ul class="assets">
+    <li><span class="must">●</span><span>High-res product photos from every angle<small>Front, back, both sides, 3/4 views, top. Transparent PNGs if you have them.</small></span></li>
+    <li><span class="must">●</span><span>Existing product footage, 4K if possible<small>Especially: held in hand, display switched on, and in use.</small></span></li>
+    <li><span class="must">●</span><span>Floating Display reference<small>Close-up video of the display changing temperature, plus its real font, colours and units.</small></span></li>
+    <li><span class="must">●</span><span>Brand guidelines<small>Logo files (SVG/PNG), fonts, hex colours, tone of voice.</small></span></li>
+    <li><span class="must">●</span><span>Your scripts and initial ideas<small>I'll merge the best of them with this plan.</small></span></li>
+    <li><span class="must">●</span><span>Approved claims and specs<small>Weight, temperature range, settings, attachments. Only claims you can support go on screen.</small></span></li>
+    <li><span class="must">●</span><span>Offer, CTA and landing URL<small>For example, a launch discount or free shipping.</small></span></li>
+    <li><span class="nice">○</span><span>A physical sample or a 20-minute phone shoot<small>I'll send a shot list for extra plates if the existing footage has gaps.</small></span></li>
+    <li><span class="nice">○</span><span>Talent and look preferences<small>Age range, hair types, styling, and brands you admire or want to avoid.</small></span></li>
+    <li><span class="nice">○</span><span>Music direction<small>Reference tracks or moods. I'll source licensed tracks that are cleared for ads.</small></span></li>
+  </ul>
+</section>
+
+<section aria-labelledby="pricing">
+  <div class="section-head">
+    <span class="eyebrow">Investment</span>
+    <h2 id="pricing">Three ways to launch Iris</h2>
+  </div>
+
+  <div class="availability">
+    <b>A note on scheduling</b>
+    <p>I'm currently in production on 10 client projects. Product-accurate compositing needs focused, unhurried time, so I'm booking Iris as a dedicated production slot instead of fitting it between other work. The pricing and delivery windows below reflect that commitment, so your launch gets full attention and isn't rushed.</p>
+  </div>
+
+  <div class="plans">
+    <article class="plan">
+      <h3>Essential</h3>
+      <div class="price mono">$300<small>USD</small></div>
+      <dl class="spec">
+        <dt>Resolution</dt><dd>1080 × 1920 (Full HD)</dd>
+        <dt>Length</dt><dd>1 × 25–30s ad</dd>
+        <dt>Delivery</dt><dd>14 days</dd>
+        <dt>Revisions</dt><dd>2 rounds</dd>
+      </dl>
+      <ul>
+        <li>3 opening hook variants</li>
+        <li>Up to 4 AI lifestyle scenes</li>
+        <li>Real product footage for hero shots</li>
+        <li>Standard captions and on-screen text</li>
+        <li>Floating Display readout graphic</li>
+        <li>Licensed music track</li>
+      </ul>
+      <p class="fit">Suits a first test of the concept with a lean budget.</p>
+    </article>
+
+    <article class="plan featured">
+      <span class="flag">Recommended</span>
+      <h3>Signature</h3>
+      <div class="price mono">$600<small>USD</small></div>
+      <dl class="spec">
+        <dt>Resolution</dt><dd>1440 × 2560 (2K)</dd>
+        <dt>Length</dt><dd>1 × 28s ad + 15s cutdown</dd>
+        <dt>Delivery</dt><dd>18 days</dd>
+        <dt>Revisions</dt><dd>3 rounds</dd>
+      </dl>
+      <ul>
+        <li>3 fully produced opening hooks</li>
+        <li>Up to 8 AI lifestyle scenes</li>
+        <li>Full product-lock compositing in hand and in use</li>
+        <li>Custom animated Floating Display with glass reflections</li>
+        <li>Spectrum light-sweep brand signature</li>
+        <li>Sound design, music and cinematic colour grade</li>
+        <li>Safe-zone versions for Reels and TikTok</li>
+      </ul>
+      <p class="fit">Everything in this plan, at the quality level a premium launch needs.</p>
+    </article>
+
+    <article class="plan">
+      <h3>Flagship</h3>
+      <div class="price mono">$900<small>USD</small></div>
+      <dl class="spec">
+        <dt>Resolution</dt><dd>2160 × 3840 (4K)</dd>
+        <dt>Length</dt><dd>28s + 15s + 6s cutdowns</dd>
+        <dt>Delivery</dt><dd>21 days, priority slot</dd>
+        <dt>Revisions</dt><dd>4 rounds</dd>
+      </dl>
+      <ul>
+        <li>Everything in Signature</li>
+        <li>Up to 12 AI scenes, including a second talent and setting</li>
+        <li>Advanced hand-interaction tracking and relighting</li>
+        <li>2 extra hook concepts (5 hooks in total)</li>
+        <li>4:5 feed version of the main ad</li>
+        <li>Voiceover version (AI or sourced voice artist)</li>
+        <li>Clean scene library for future ads</li>
+      </ul>
+      <p class="fit">A full launch kit and the base for ongoing monthly creative.</p>
+    </article>
+  </div>
+
+  <div class="compare-wrap">
+    <table>
+      <thead><tr><th scope="col">At a glance</th><th scope="col">Essential</th><th scope="col">Signature</th><th scope="col">Flagship</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Master resolution</th><td>1080p</td><td>2K</td><td>4K</td></tr>
+        <tr><th scope="row">AI scenes</th><td>Up to 4</td><td>Up to 8</td><td>Up to 12</td></tr>
+        <tr><th scope="row">Hook variants</th><td>3</td><td>3</td><td>5</td></tr>
+        <tr><th scope="row">Compositing</th><td>Hero shots only</td><td>Full product lock</td><td>Full lock + hand relighting</td></tr>
+        <tr><th scope="row">Display animation</th><td>Standard</td><td>Custom, with glass</td><td>Custom, with glass</td></tr>
+        <tr><th scope="row">Cutdowns and formats</th><td>9:16 main</td><td>9:16 main + 15s</td><td>9:16 main + 15s + 6s, 4:5</td></tr>
+        <tr><th scope="row">Sound</th><td>Music</td><td>Music + sound design</td><td>Music + sound design + VO</td></tr>
+        <tr><th scope="row">Revision rounds</th><td>2</td><td>3</td><td>4</td></tr>
+        <tr><th scope="row">Delivery</th><td>14 days</td><td>18 days</td><td>21 days, priority</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="addons">
+    <span>Extra hook variant<b>+$40</b></span>
+    <span>Extra cutdown or aspect ratio<b>+$50</b></span>
+    <span>Extra revision round<b>+$35</b></span>
+    <span>Additional AI scene<b>+$30</b></span>
+  </div>
+  <p class="muted" style="font-size:0.9rem">Rush delivery isn't available while my current commitments run. For ongoing work, I can offer a monthly retainer with reserved production days and preferred rates once the Iris launch ad is live.</p>
+</section>
+
+<section aria-labelledby="timeline">
+  <div class="section-head">
+    <span class="eyebrow">Timeline · Signature tier</span>
+    <h2 id="timeline">18 days, start to finish</h2>
+    <p class="muted">Counted from receiving your assets. Your review time isn't included.</p>
+  </div>
+  <div class="timeline" role="img" aria-label="Gantt chart of the 18-day schedule">
+    <div class="tl-row"><span>Creative lock</span><div class="tl-track"><div class="tl-bar" style="left:0%;width:16.7%">D1–3</div></div></div>
+    <div class="tl-row"><span>Plate prep</span><div class="tl-track"><div class="tl-bar" style="left:11.1%;width:22.2%">D3–6</div></div></div>
+    <div class="tl-row"><span>AI generation</span><div class="tl-track"><div class="tl-bar" style="left:22.2%;width:33.3%">D5–10</div></div></div>
+    <div class="tl-row"><span>Compositing</span><div class="tl-track"><div class="tl-bar" style="left:44.4%;width:27.8%">D9–13</div></div></div>
+    <div class="tl-row"><span>Motion + edit</span><div class="tl-track"><div class="tl-bar" style="left:61.1%;width:22.2%">D12–15</div></div></div>
+    <div class="tl-row"><span>Review + delivery</span><div class="tl-track"><div class="tl-bar" style="left:83.3%;width:16.7%">D16–18</div></div></div>
+    <div class="tl-scale"><span></span><div><span>Day 1</span><span>Day 6</span><span>Day 12</span><span>Day 18</span></div></div>
+  </div>
+</section>
+
+<section aria-labelledby="next">
+  <div class="section-head">
+    <span class="eyebrow">Next steps</span>
+    <h2 id="next">Getting Iris into production</h2>
+  </div>
+  <ol class="next">
+    <li><span>Choose a tier, or tell me what you'd adjust, and I'll send a matching custom offer.</span></li>
+    <li><span>Share the assets in the checklist, starting with the must-haves.</span></li>
+    <li><span>We have a 20-minute creative lock call, or do it async, to finalise the script and hooks.</span></li>
+    <li><span>Production starts, and you get the first watermarked cut inside the delivery window.</span></li>
+  </ol>
+  <div class="signoff">
+    <p>I'm glad you're thinking long term. A brand with an asset as distinctive as the Floating Display can build a recognisable ad style quickly, and I'd like to help build it.</p>
+    <span class="name">Rehem Alak</span>
+    <span class="muted mono" style="font-size:0.8rem">AI video · compositing · motion design</span>
+  </div>
+</section>
+
+<footer class="foot">
+  <span>Iris launch ad · production plan v1</span>
+  <span>Prices in USD · valid for 14 days</span>
+</footer>
+
+</div>
