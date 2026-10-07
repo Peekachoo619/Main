@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Cinematic Trailer Pricing</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0e0b09;
+    --panel: #18130f;
+    --panel-hi: #231a12;
+    --gold: #d9a85b;
+    --gold-soft: #f0d29a;
+    --text: #f4ece2;
+    --muted: #b4a796;
+    --line: #3a2d20;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--bg); }
+  body {
+    width: 1000px;
+    margin: 0 auto;
+    color: var(--text);
+    font-family: 'Inter', system-ui, sans-serif;
+    padding: 56px 56px 48px;
+    background:
+      radial-gradient(ellipse 700px 380px at 50% -60px, rgba(217,168,91,.20), transparent 70%),
+      var(--bg);
+  }
+  .eyebrow {
+    text-align: center; letter-spacing: .32em; text-transform: uppercase;
+    font-size: 13px; color: var(--gold); font-weight: 600;
+  }
+  h1 {
+    font-family: 'Playfair Display', serif; text-align: center;
+    font-size: 44px; line-height: 1.15; margin: 14px 0 10px;
+  }
+  .title-film {
+    text-align: center; font-family: 'Playfair Display', serif; font-style: italic;
+    color: var(--gold-soft); font-size: 22px;
+  }
+  .intro {
+    text-align: center; color: var(--muted); font-size: 16px; line-height: 1.6;
+    max-width: 680px; margin: 18px auto 40px;
+  }
+  .plans { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .plan {
+    background: var(--panel); border: 1px solid var(--line); border-radius: 18px;
+    padding: 32px 30px 30px; position: relative;
+  }
+  .plan.featured {
+    background: linear-gradient(180deg, var(--panel-hi), var(--panel));
+    border: 1.5px solid var(--gold);
+    box-shadow: 0 0 40px rgba(217,168,91,.15);
+  }
+  .badge {
+    position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
+    background: var(--gold); color: #1a120a; font-size: 11px; font-weight: 700;
+    letter-spacing: .14em; text-transform: uppercase; padding: 6px 14px; border-radius: 999px;
+    white-space: nowrap;
+  }
+  .plan-name { font-size: 14px; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); font-weight: 600; }
+  .price { font-family: 'Playfair Display', serif; font-size: 58px; margin: 6px 0 2px; }
+  .res { font-size: 18px; font-weight: 600; }
+  .res span { color: var(--muted); font-weight: 400; }
+  .divider { height: 1px; background: var(--line); margin: 22px 0; }
+  ul { list-style: none; }
+  li { display: flex; gap: 12px; font-size: 15.5px; line-height: 1.45; margin-bottom: 12px; }
+  li::before { content: "✦"; color: var(--gold); flex: none; }
+  .best { margin-top: 18px; font-size: 14px; color: var(--muted); line-height: 1.5; }
+  .best b { color: var(--gold-soft); font-weight: 600; }
+
+  h2 {
+    font-family: 'Playfair Display', serif; font-size: 26px; text-align: center;
+    margin: 48px 0 22px;
+  }
+  .why { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .why div {
+    background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 20px 22px;
+  }
+  .why h3 { font-size: 16px; color: var(--gold-soft); margin-bottom: 6px; font-weight: 600; }
+  .why p { font-size: 14.5px; color: var(--muted); line-height: 1.55; }
+
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .step { text-align: center; padding: 0 8px; }
+  .num {
+    width: 40px; height: 40px; border-radius: 50%; border: 1.5px solid var(--gold);
+    color: var(--gold); display: grid; place-items: center; margin: 0 auto 10px;
+    font-family: 'Playfair Display', serif; font-size: 18px;
+  }
+  .step p { font-size: 14.5px; color: var(--muted); line-height: 1.5; }
+  .step b { color: var(--text); display: block; margin-bottom: 4px; font-weight: 600; }
+
+  .footer {
+    margin-top: 44px; text-align: center; font-family: 'Playfair Display', serif;
+    font-style: italic; font-size: 19px; color: var(--gold-soft);
+  }
+  .tools { text-align: center; margin-top: 8px; font-size: 13px; color: var(--muted); letter-spacing: .06em; }
+</style>
+</head>
+<body>
+  <div class="eyebrow">AI Cinematic Trailer · Pricing</div>
+  <h1>2-Minute Cinematic Trailer</h1>
+  <div class="title-film">“Every Little Ghetto Girl Has a Dream”</div>
+  <p class="intro">
+    A powerful, emotional trailer that follows your lead character from a young girl,
+    to a teenager, to a successful woman, with her look kept consistent in every scene.
+  </p>
+
+  <div class="plans">
+    <div class="plan">
+      <div class="plan-name">Standard</div>
+      <div class="price">$500</div>
+      <div class="res">720p HD <span>· Seedance 2.5</span></div>
+      <div class="divider"></div>
+      <ul>
+        <li>Full 2-minute cinematic trailer</li>
+        <li>Consistent character: child → teen → adult</li>
+        <li>Professional emotional voiceover</li>
+        <li>Dramatic background music</li>
+        <li>Cinematic editing &amp; color grading</li>
+        <li>Generous revisions</li>
+      </ul>
+      <p class="best"><b>Best for:</b> social media posts and quick previews.</p>
+    </div>
+
+    <div class="plan featured">
+      <div class="badge">Recommended</div>
+      <div class="plan-name">Premium</div>
+      <div class="price">$750</div>
+      <div class="res">1080p Full HD <span>· Seedance 2.5</span></div>
+      <div class="divider"></div>
+      <ul>
+        <li>Full 2-minute cinematic trailer</li>
+        <li>Consistent character: child → teen → adult</li>
+        <li>Professional emotional voiceover</li>
+        <li>Dramatic background music</li>
+        <li>Cinematic editing &amp; color grading</li>
+        <li>Generous revisions</li>
+      </ul>
+      <p class="best"><b>Best for:</b> YouTube, streaming, big screens and series promotion.</p>
+    </div>
+  </div>
+
+  <h2>Why Work With Me</h2>
+  <div class="why">
+    <div>
+      <h3>One Character, Every Age</h3>
+      <p>A detailed character reference is built first, so her face, skin tone and identity stay true as she grows up on screen.</p>
+    </div>
+    <div>
+      <h3>Meticulous Quality Control</h3>
+      <p>Every shot is reviewed. Distorted hands, shifting faces and flicker are fixed or regenerated before you ever see them.</p>
+    </div>
+    <div>
+      <h3>Top-Tier Tools</h3>
+      <p>Produced on the Higgsfield AI platform with native access to all leading video, image and voice models.</p>
+    </div>
+    <div>
+      <h3>Humble, Generous Revisions</h3>
+      <p>Your vision leads. Adjustments are made until the trailer feels exactly right to you.</p>
+    </div>
+  </div>
+
+  <h2>How It Works</h2>
+  <div class="steps">
+    <div class="step"><div class="num">1</div><p><b>Share Your Script</b>Plus any reference photos or style ideas.</p></div>
+    <div class="step"><div class="num">2</div><p><b>Approve Your Character</b>See her at every age before production begins.</p></div>
+    <div class="step"><div class="num">3</div><p><b>Receive Your Trailer</b>Review, request revisions, and launch your series.</p></div>
+  </div>
+
+  <div class="footer">Looking forward to bringing your story to life.</div>
+  <div class="tools">Powered by Higgsfield AI · Seedance 2.5</div>
+</body>
+</html>
