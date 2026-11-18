@@ -35,7 +35,18 @@ Omer's brief: short-form and long-form ads. Big yellow subtitles, big effects th
 - **Next:** I may want to edit in CapCut myself. Offer per-video layers: video without captions, voice WAV, music WAV, captions .srt.
 - Open questions for Omer and Esad: brand name and logo; phone number or website for the end card; whether to show "estimated" beside the rent and price figures.
 
-## Source media (NOT in git, too large)
+## Starting a new chat with this pack
+- The user uploads `HANDOVER.md` (this file) and `VideoAds_Project.zip`.
+- Unzip the project, read this file, then carry on from **Next** above.
+- Before re-rendering anything, fetch the source clips from the Dropbox link below.
+
+## Finished videos
+- The 9 final MP4s (about 138 MB) are not in the zip.
+- The user saved them from the old chat. Ask them to upload the ones needed, or re-render from the configs with the source clips.
+
+## Source media (NOT in the zip, too large)
+- Esad's source footage (Dropbox, public link): https://www.dropbox.com/scl/fo/qazky3poiady0192oxi2p/AI3M8LNDd9ihtJf7_Gl8Gsc?rlkey=v76chfswc4tr8fjqs3vl05to4&dl=1 (`dl=1` downloads it as one zip).
+- Earlier Melbourne Temp Poles footage: https://www.dropbox.com/scl/fo/ehhx1ckjodrmrwhv2yqrr/AJhjiNr7baTapBCbNQPphCA?rlkey=qn4mvedhg6cwnlzovyhsstjca&dl=1
 - 25 phone clips (1728×3072, 29.97 fps) from Omer's Dropbox. `es/names.txt` maps e01–e25 to the original file names ("Video 14-11-2026, 3 41 59 pm.mp4", …).
   - Put them in `es/src/` as `e01.mp4 … e25.mp4` (e24 is `.mov`).
   - Rebuild audio: `ffmpeg -i es/src/eNN.mp4 -ac 1 -ar 48000 es/w/eNN.wav`.
