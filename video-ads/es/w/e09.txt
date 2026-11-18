@@ -1,0 +1,8 @@
+[  0.00-  3.66] What's@0.00 inside@0.12 the@0.24 door@0.44 key?@0.58 Both@1.42 dwellings@1.50 have@1.88 three@2.22 own@2.52 living.@3.18
+[  4.46-  4.72] Okay.@4.46
+[  6.46-  7.48] What's@6.46 inside@6.64 the@6.90 door@7.14 key?@7.24
+[  9.50- 13.06] Your@9.50 drill@9.70 key@9.92 has@10.16 their@10.36 own@10.60 living,@10.90 own@11.44 kitchen@11.74 and@12.10 own@12.44 laundry.@12.72
+[ 15.10- 22.22] Your@15.10 drill@15.34 key@15.58 home@15.76 has@16.02 their@17.16 own@17.48 living@17.84 space,@18.12 their@19.48 own@19.52 bedrooms,@19.74 own@20.58 bathroom@20.70 and@21.10 own@21.68 laundry.@21.86
+[ 22.82- 24.42] Separated@22.82 for@23.34 privacy.@23.92
+[ 25.72- 26.04] Oh@25.72 no.@25.74
+[ 26.76- 28.02] So@26.76 you@27.16 like@27.26 this@27.36 part@27.56 here?@27.78
