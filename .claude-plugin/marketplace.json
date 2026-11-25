@@ -1,0 +1,14 @@
+{
+  "name": "peekachoo-skills",
+  "description": "Personal Claude skills: video editing, motion design and voice.",
+  "owner": {
+    "name": "Peekachoo619"
+  },
+  "plugins": [
+    {
+      "name": "video-studio",
+      "source": "./video-skills",
+      "description": "ffmpeg-skill + design-to-motion + voicestudio: editor, motion designer and voice actor for Claude."
+    }
+  ]
+}

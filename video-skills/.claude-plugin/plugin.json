@@ -1,0 +1,10 @@
+{
+  "name": "video-studio",
+  "displayName": "Video Studio",
+  "description": "Three video-editing skills in one plugin: ffmpeg-skill (local FFmpeg editor: cuts, captions, reframes, loudness, platform exports), design-to-motion (static design to animated MP4/GIF showcase), and voicestudio (local TTS, voice cloning, transcription and dubbing via a running VoiceStudio app).",
+  "version": "1.0.0",
+  "license": "MIT AND AGPL-3.0-only",
+  "author": {
+    "name": "Peekachoo619"
+  }
+}

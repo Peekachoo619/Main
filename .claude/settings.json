@@ -1,0 +1,13 @@
+{
+  "extraKnownMarketplaces": {
+    "peekachoo-skills": {
+      "source": {
+        "source": "github",
+        "repo": "Peekachoo619/Main"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "video-studio@peekachoo-skills": true
+  }
+}
